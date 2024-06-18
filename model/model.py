@@ -1,8 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
 
-from model.load_data import trainloader, testloader
-
 
 class SimpleCNN(nn.Module):
     def __init__(self):
