@@ -7,12 +7,13 @@ trainloader, testloader = load_cifar10()
 
 # Instantiate the model and load the trained weights
 net = SimpleCNN()
-PATH = './saved_models/cifar_net.pth'
+PATH = "./saved_models/cifar_net.pth"
 net.load_state_dict(torch.load(PATH))
 net.eval()
 
+
 # Evaluate the network on the test data
-def main():    
+def main():
     correct = 0
     total = 0
     with torch.no_grad():
@@ -23,7 +24,10 @@ def main():
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 
-    print(f'Accuracy of the network on the 10000 test images: {100 * correct / total:.2f}%')
+    print(
+        f"Accuracy of the network on the 10000 test images: {100 * correct / total:.2f}%"
+    )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

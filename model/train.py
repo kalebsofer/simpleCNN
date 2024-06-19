@@ -19,11 +19,12 @@ val_acc = []
 train_loss = []
 val_loss = []
 
+
 def main():
     # Training the network
     epochs = 10
-    for epoch in range(epochs):  
-        net.train()  
+    for epoch in range(epochs):
+        net.train()
         running_loss = 0.0
         correct = 0
         total = 0
@@ -75,20 +76,25 @@ def main():
         val_loss.append(val_epoch_loss)
         val_acc.append(val_epoch_acc)
 
-        print(f'Epoch {epoch + 1}, Train Loss: {epoch_loss:.4f}, Train Acc: {epoch_acc:.2f}%, Val Loss: {val_epoch_loss:.4f}, Val Acc: {val_epoch_acc:.2f}%')
+        print(
+            f"Epoch {epoch + 1}, Train Loss: {epoch_loss:.4f}, Train Acc: {epoch_acc:.2f}%, Val Loss: {val_epoch_loss:.4f}, Val Acc: {val_epoch_acc:.2f}%"
+        )
 
-    print('Finished Training')
+    print("Finished Training")
 
     # Save the trained model and metrics
-    PATH = './saved_models/cifar_net.pth'
+    PATH = "./saved_models/cifar_net.pth"
     torch.save(net.state_dict(), PATH)
-    torch.save({
-        'train_loss': train_loss,
-        'train_acc': train_acc,
-        'val_loss': val_loss,
-        'val_acc': val_acc
-    }, './saved_models/metrics.pth')
+    torch.save(
+        {
+            "train_loss": train_loss,
+            "train_acc": train_acc,
+            "val_loss": val_loss,
+            "val_acc": val_acc,
+        },
+        "./saved_models/metrics.pth",
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
