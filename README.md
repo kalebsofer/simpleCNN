@@ -23,7 +23,7 @@ SimpleCNN utilizes a CNN architecture to classify images from the CIFAR-10 datas
 
 ---
 ## The network architecture
-[See model.py](SimpleCNN/model/model.py)
+[See model.py](model/model.py)
 1. **Input Layer:**
    - Input images are RGB with 3 channels.
 
